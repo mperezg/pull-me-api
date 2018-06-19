@@ -1,0 +1,10 @@
+ var Models = {
+  Repo: Backbone.Model.extend({
+	  defaults: {
+		  id: 0,
+		  name: '',
+		  full_name: '',
+		  html_url: ''
+	  }
+  }),
+};

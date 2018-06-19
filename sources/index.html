@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pull me API - Recopilatorio de servicios API públicos</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preload" as="script" href="assets/js/jquery.min.js"/>
+		<link rel="preload" as="script" href="assets/js/underscore.min.js"/>
+		<link rel="preload" as="script" href="assets/js/backbone.min.js"/>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700" rel="stylesheet">
+		<link rel="Stylesheet" type="text/css" href="assets/css/reset.css" />
+		<link rel="Stylesheet" type="text/css" href="assets/css/styles.css" />
+	</head>
+	<body>
+		
+		<!-- templates estáticos-->
+	
+		<textarea data-type="htmltpl" id="repos">
+			<h1>Repositorios en github de @hackeryou</h1>
+			<div id="repo-search-box" class="repo-search-box"/>
+			<div id="repo-query-info" class="repo-query-info"></div>
+			<div id="repo-list-container" class="repo-list-container">
+				<div class="spinner"><i class="fas fa-sync fa-spin"></i></div>
+			</div>
+		</textarea>
+		
+		<textarea data-type="htmltpl" id="singleRepo">
+			<h2><%= repo.name %><span class="single-repo-lang"><%= repo.language %></span></h2>
+			<div class="repo-list-url"><%= repo.git_url %></div>
+		</textarea>
+		
+		<textarea data-type="htmltpl" id="search">
+			<input type="text" class="search-query" id="search-query" placeholder="Busca un repo por nombre">
+			<button type="button" class="search-submit" id="search-submit"><i class="fas fa-search"></i></button>
+		</textarea>
+		
+		<textarea data-type="htmltpl" id="errorRepo">
+			<h2>Error <%= error.code %></h2>
+		</textarea>
+		
+		
+		<!-- container de renderizado -->
+		<div id="container" class="wrapper"></div>
+		
+		
+		<!-- librería backbone.js 1.3.3 -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/underscore.min.js"></script>
+		<script src="assets/js/backbone.min.js"></script>
+		<!-- modelos / colecciones / vistas -->
+		<script>var Views = {};</script>
+		<script src="src/models/repoModel.js"></script>
+		<script src="src/models/errorModel.js"></script>
+		<script src="src/collections/reposCollection.js"></script>
+		<script src="src/views/repoView.js"></script>
+		<script src="src/views/searchView.js"></script>
+		<script src="src/views/reposView.js"></script>
+		<script src="src/views/errorView.js"></script>
+		<!-- arranque de la app -->
+		<script src="src/app.js" defer></script>
+	</body>
+</html>
