@@ -6,6 +6,7 @@ Views.ReposApp = Backbone.View.extend({
 		this.template = _.template($('#repos').val());
 		this.searchBox = new Views.SearchBox();
 		this.searchBox.on('searchRequest', this.performSearch, this);
+		this.searchBox.on('searchRequestURL', this.performSearchURL, this);
 		this.collection = new Collections.Repos();
 		this.collection.on('reset', this.showRepos, this);
 		this.collection.on('add', this.showRepos, this);
@@ -55,6 +56,12 @@ Views.ReposApp = Backbone.View.extend({
 		evdata = evdata || {};
 		console.log('Buscando: ', evdata.queryString);
 		this.showRepos(evdata.queryString);
+	},
+
+	performSearchURL: function(queryString) {
+		evdata = evdata || {};
+		console.log('Buscando: ', queryString);
+		this.showRepos(queryString);
 	},
 	initiateCounter: function() {
 		let n = this.collection.length;

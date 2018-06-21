@@ -1,4 +1,5 @@
+var router;
 $(document).ready(function() {
-  vs = new Views.ReposApp();
-  vs.setElement($('#container')).render();
+	router = new Router;
+	Backbone.history.start();
 });

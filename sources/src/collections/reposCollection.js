@@ -9,9 +9,7 @@ var Collections = {
 	initialize: function() {
 		this.fetch({
 			error: function(collection, xhr, error) {
-				let vs = new Views.Error();
-				vs.model.set({"code": xhr.status, "status": xhr.statusText, "message": xhr.responseJSON.message});
-				vs.setElement($('#repo-list-container')).render();
+				router.navigate("error/"+xhr.status+"/"+xhr.statusText, {trigger: true});
 			}
 		});
 	},

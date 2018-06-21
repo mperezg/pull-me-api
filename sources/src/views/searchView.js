@@ -2,7 +2,8 @@ Views.SearchBox = Backbone.View.extend({
 	className: 'search-wrapper',
 	events: {
 		'click #search-submit': 'performSearch',
-		'keyup #search-query': 'performSearch'
+		'keyup #search-query': 'performSearch',
+		'change #search-query': 'performSearch'
 	},
 	initialize: function() {
 		this.template = _.template($('#search').val())

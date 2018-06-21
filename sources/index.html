@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Pull me API - Recopilatorio de servicios API públicos</title>
+		<title>Pull me API - Visor de repositorios github</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="preload" as="script" href="assets/js/jquery.min.js"/>
@@ -23,11 +23,26 @@
 			<div id="repo-list-container" class="repo-list-container">
 				<div class="spinner"><i class="fas fa-sync fa-spin"></i></div>
 			</div>
+			<div id="repo-view-container" class="repo-view-container"/>
+			<div id="error-container" class="error-container"/>
 		</textarea>
 		
 		<textarea data-type="htmltpl" id="singleRepo">
-			<h2><%= repo.name %><span class="single-repo-lang"><%= repo.language %></span></h2>
-			<div class="repo-list-url"><%= repo.git_url %></div>
+			<div data-repo-name="<%= repo.name %>" data-repo-id="<%= repo.id %>">
+				<h2><%= repo.name %><span class="single-repo-lang"><%= repo.language %></span></h2>
+				<div class="repo-list-url"><%= repo.git_url %></div>
+			</div>
+		</textarea>
+		
+		<textarea data-type="htmltpl" id="viewRepo">
+			<div class="repo-container">
+				<h2><%= repo.name %><span class="single-repo-lang"><%= repo.language %></span></h2>
+				<div class="repo-list-url"><i class="fa fa-clone"></i> <%= repo.git_url %></div>
+				<div class="owner">
+					<p><div class="avatar"><img src="<%= repo.owner.avatar_url %>"/></div> <%= repo.owner.login %> #<%= repo.owner.id %></p>
+					<p><a href="<%= repo.owner.html_url %>"><i class="fa fa-link"></i> <%= repo.owner.html_url %></a></p>
+				</div>
+			</div>
 		</textarea>
 		
 		<textarea data-type="htmltpl" id="search">
@@ -36,8 +51,11 @@
 		</textarea>
 		
 		<textarea data-type="htmltpl" id="errorRepo">
-			<h2>Error <%= error.code %></h2>
+			<h2>Error <%= error.code %> <%= error.status %></h2>
+			<div class="error-message"><%= error.message %></div>
 		</textarea>
+		
+		<!-- / templates estáticos -->
 		
 		
 		<!-- container de renderizado -->
@@ -48,15 +66,21 @@
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/underscore.min.js"></script>
 		<script src="assets/js/backbone.min.js"></script>
+		
 		<!-- modelos / colecciones / vistas -->
 		<script>var Views = {};</script>
 		<script src="src/models/repoModel.js"></script>
 		<script src="src/models/errorModel.js"></script>
 		<script src="src/collections/reposCollection.js"></script>
+		<script src="src/views/singleRepoView.js"></script>
 		<script src="src/views/repoView.js"></script>
 		<script src="src/views/searchView.js"></script>
 		<script src="src/views/reposView.js"></script>
 		<script src="src/views/errorView.js"></script>
+		
+		<!-- router -->
+		<script src="src/routes.js"></script>
+		
 		<!-- arranque de la app -->
 		<script src="src/app.js" defer></script>
 	</body>
