@@ -23,7 +23,7 @@ var Router = Backbone.Router.extend({
 				self.viewHelper(m);
 			}, 
 			error: function(a,b,c) {
-				// controlar error con errorView
+				router.navigate("error/"+b.status+"/"+b.statusText);
 			}
 		});
 	},

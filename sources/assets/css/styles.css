@@ -209,7 +209,31 @@ textarea[data-type="htmltpl"] {
 	padding: 4rem;
 	line-height: 1.7;
 }
+.repo-view-container .repo-container .close-button {
+	position: absolute;
+	padding: 0 1rem;
+	top: 0;
+	right: 0;
+	font-size: 2.6rem;
+	color: #c51162;
+	cursor: pointer;
+}
+.repo-view-container .repo-container .close-button:hover {
+	color: #790037;
+}
+.repo-view-container .repo-container h3 {
+	font-size: 1.6rem;
+	color: #018786;
+	font-weight: 700;
+	text-transform: uppercase;
+	border-bottom: .1rem solid green;
+	margin: 2rem 0;
+}
+.repo-view-container .repo-container h3:first-of-type {
+	margin-top: 1rem;
+}
 .repo-view-container .repo-container h2 {
+	position: relative;
 	font-size: 2.4rem;
 	color: #3700b3;
 	font-weight: 700;
@@ -217,6 +241,7 @@ textarea[data-type="htmltpl"] {
 .repo-view-container .repo-container .single-repo-lang {
 	position: absolute;
 	right: 1rem;
+	top: 0.8rem;
 	background-color: #018786;
 	color: #fff;
 	font-size: 1.2rem;
@@ -226,7 +251,19 @@ textarea[data-type="htmltpl"] {
 .repo-view-container .repo-container .repo-list-url {
 	font-size: 1.6rem;
 	font-weight: 400;
-	padding: 1rem 0;
+	padding: 1rem 0 3rem 0;
+}
+.repo-view-container .repo-container .repo-list-url .fa {
+	vertical-align: middle;
+}
+.repo-view-container .repo-container .repo-list-url .hidden-design {
+	border: 0;
+	background: transparent;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	font-size: 1.6rem;
+	padding: .2rem 1rem;
+	vertical-align: middle;
 }
 .repo-view-container .repo-container .owner {
 	background: #efefef;
@@ -242,7 +279,14 @@ textarea[data-type="htmltpl"] {
 	height: 5.4rem;
 	width: auto;
 }
-
+.repo-view-container .repo-container .owner p {
+	font-size: 1.8rem;
+}
+.repo-view-container .repo-container .owner p .name {
+	font-size: 2.4rem;
+	font-weight: 600;
+	margin: 0 2rem;
+}
 
 
 

@@ -11,6 +11,7 @@
 				html_url: ''
 			},
 			html_url: '',
+			git_url: '',
 			description: ''
 		}
 	}),

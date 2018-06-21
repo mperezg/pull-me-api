@@ -36,10 +36,14 @@
 		
 		<textarea data-type="htmltpl" id="viewRepo">
 			<div class="repo-container">
+				<div class="close-button"><i class="fa fa-window-close"></i></div>
+				<h3>Información de repositorio</h3>
 				<h2><%= repo.name %><span class="single-repo-lang"><%= repo.language %></span></h2>
-				<div class="repo-list-url"><i class="fa fa-clone"></i> <%= repo.git_url %></div>
+				<div class="repo-list-url"><i class="fa fa-clone"></i> <input type="text" class="hidden-design" readonly value="<%= repo.git_url %>"/></div>
+				
+				<h3>Información de propietario</h3>
 				<div class="owner">
-					<p><div class="avatar"><img src="<%= repo.owner.avatar_url %>"/></div> <%= repo.owner.login %> #<%= repo.owner.id %></p>
+					<p><span class="avatar"><img src="<%= repo.owner.avatar_url %>"/></span> <span class="name"><%= repo.owner.login %></span> #<%= repo.owner.id %></p>
 					<p><a href="<%= repo.owner.html_url %>"><i class="fa fa-link"></i> <%= repo.owner.html_url %></a></p>
 				</div>
 			</div>
