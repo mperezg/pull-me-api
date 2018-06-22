@@ -1,13 +1,13 @@
 var vs, vopts, vrepo;
 var Router = Backbone.Router.extend({
-    routes: {
-        '': 'index',
+	routes: {
+		'': 'index',
 		'search/:query': 'search',
 		'view/:name': 'view',
 		'options': 'options',
 		'error/:code/(:status)': 'error',
 		'*default': 'errorDefault'
-    },
+	},
 	initialize: function() {
 		this.index();
 	},
