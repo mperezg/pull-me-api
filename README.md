@@ -1,8 +1,18 @@
 # pull-me-api
 
+## Despliegue y arranque
+
+Esta aplicación no requiere de un servidor activo al no ser dependiente de funciones de servidor (ni localStorage en cliente), así que se podrá desplegar simplemente descargando el código fuente (o clonando el repositorio git) y abriendo el fichero `sources/index.html` con cualquier navegador web.
+
+Se puede configurar un servidor para servir el `index.html` desde un dominio o IP específica.
+
 ## Visualizador de repositorios en github
 
 > **Atención**: la API pública de GitHub permite 60 peticiones a la hora. Una vez superado ese límite se verá un error 503 y será necesario esperar a que el periodo se reinicie.
+
+### Compatibilidad con navegadores
+
+Esta aplicación es compatible con Internet Explorer, Microsoft Edge, Google Chrome, Mozilla Firefox, Opera y Safari, con sus respectivas versiones móviles.
 
 ### Repos
 
