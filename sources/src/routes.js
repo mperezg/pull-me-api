@@ -39,10 +39,9 @@ var Router = Backbone.Router.extend({
 		var vs = new Views.Error({model: m});
 		vs.setElement($('#error-container')).render();
 	},
+	// no cambiamos la URL para informar al usuario de dónde está la página no encontrada
 	errorDefault: function() {
-		let m = new Models.Error({code: '404', status: 'Not Found'});
-		var vs = new Views.Error({model: m});
-		vs.setElement($('#error-container')).render();
+		this.error('404', 'Not Found');
 	}
 });
 
