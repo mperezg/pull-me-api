@@ -11,10 +11,10 @@ var Router = Backbone.Router.extend({
 	initialize: function() {
 		this.index();
 	},
-    index: function(){
+	index: function(){
 		vs = new Views.ReposApp();
 		vs.setElement($('#container')).render();
-    },
+	},
 	search: function(query) {
 		$('#search-query').val(query).change();
 	},
