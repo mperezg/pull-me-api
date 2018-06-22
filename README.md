@@ -8,7 +8,11 @@ Se puede configurar un servidor para servir el `index.html` desde un dominio o I
 
 ## Visualizador de repositorios en github
 
+
+> 
 > **Atención**: la API pública de GitHub permite 60 peticiones a la hora. Una vez superado ese límite se verá un error 503 y será necesario esperar a que el periodo se reinicie.
+> 
+
 
 ### Compatibilidad con navegadores
 
