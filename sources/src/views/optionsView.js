@@ -1,6 +1,6 @@
 Views.Options = Backbone.View.extend({
 	className: 'options',
-	slideSpeed: 300,
+	slideSpeed: 250,
 	events: {
 		'change input[name="colType"]': 'colType',
 		'change input[name="allowSearch"]': 'allowSearch'
@@ -18,7 +18,7 @@ Views.Options = Backbone.View.extend({
 		mode.show().stop().animate({
 			marginTop: 0,
 			opacity: 1
-		}, this.slideSpeed * 2, function() {
+		}, this.slideSpeed * 1.75, function() {
 			$(this).show();
 		});
 		$('#menu ul li a').removeClass('active');

@@ -288,6 +288,15 @@ textarea[data-type="htmltpl"] {
 .repo-view-container .repo-container .repo-list-url a {
 	color: #6200ee;
 	text-decoration: none;
+	display: inline-block;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	max-width: 100%;
+}
+.repo-view-container .repo-container .repo-list-url .icon-wrapper {
+	display: inline-block;
+	width: 2.6rem;
 }
 .repo-view-container .repo-container .repo-list-url a:hover {
 	color: #3700b3;
@@ -339,6 +348,16 @@ textarea[data-type="htmltpl"] {
 	transform: translate(-50%, -50%);
 	color: #fff;
 	font-size: 5rem;
+}
+.repo-view-container .repo-container .owner a {
+	color: #6200ee;
+	text-decoration: none;
+}
+.repo-view-container .repo-container .owner a .fa {
+	margin-right: 1rem;
+}
+.repo-view-container .repo-container .owner a:hover {
+	color: #3700b3;
 }
 
 
@@ -432,6 +451,7 @@ textarea[data-type="htmltpl"] {
 	font-size: 1.8rem;
 	padding: 2rem;
 	background: #efefef;
+	border-bottom: .2rem solid #fff;
 }
 .menu ul li a:hover {
 	background: #e9e9e9;

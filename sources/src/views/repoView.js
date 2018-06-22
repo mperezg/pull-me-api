@@ -7,7 +7,6 @@ Views.Repo = Backbone.View.extend({
 		'click .close-button': 'closeRepo'
 	},
 	initialize: function() {
-		console.log('initialize');
 		_.bindAll(this, _.functions(this));
 		this.template = _.template($('#viewRepo').val());
 	},
@@ -16,7 +15,7 @@ Views.Repo = Backbone.View.extend({
 		var self = this;
 		this.model = (new Models.Repo({id: name})).fetch({
 			success: function() {
-		console.log('render', name);
+				$('body').css('overflow', 'hidden');
 				self.$el.html(self.template({repo:self.model.responseJSON})).fadeIn('fast');
 			}, 
 			error: function(a,b,c) {
@@ -27,14 +26,10 @@ Views.Repo = Backbone.View.extend({
 		return this;
 	},
 	formatDate: function(dateStr) {
-		let date = Date.parse(dateStr);
-		date = new Date(date);
+		let date = new Date(Date.parse(dateStr));
 		return date.toLocaleString();
-		return date.getDate()+"-"+date.getMonth()+"-"+date.getFullYear();
-		console.log('date ', date);
 	},
 	setSpinner: function() {
-		console.log('long ', this.$el.length);
 		this.$el.html('<div class="repo-spinner"><i class="fas fa-sync-alt fa-spin"></i></div>').fadeIn('fast');
 	},
 	handleShadow: function(e) {
@@ -44,6 +39,7 @@ Views.Repo = Backbone.View.extend({
 	},
 	closeRepo: function() {
 		var self = this;
+		$('body').css('overflow', 'auto');
 		this.$el.animate({
 			width: 0, 
 			height: 0,

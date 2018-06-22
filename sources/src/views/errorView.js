@@ -18,12 +18,15 @@ Views.Error = Backbone.View.extend({
 	getErrorMsg: function(code) {
 		var m;
 		switch(code) {
+			case 403:
 			case "403":
 				m = '<p><strong>Lo sentimos.</strong></p><p>El servidor de API ha respondido con un error 403 lo que significa que se ha superado el límite de peticiones API por hora para esta IP.</p><p>Por favor, espera un rato para volver a recibir las peticiones.</p><p>'+this.getButton()+'</p>';
 				break;
+			case 404:
 			case "404":
 				m = '<p><strong>Lo sentimos.</strong></p><p>El servidor de API ha respondido con un error 404 lo que significa que no se ha encontrado la página. Quizás la URL de la API está mal configurada.</p><p>'+this.getButton()+'</p>';
 				break;
+			case 500:
 			case "500":
 				m = '<p><strong>Lo sentimos.</strong></p><p>El servidor de API ha respondido con un error 500 que hay un error interno del servidor. Quizás la URL de la API está mal configurada.</p><p>'+this.getButton()+'</p>';
 				break;

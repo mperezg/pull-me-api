@@ -1,0 +1,83 @@
+@media all and (max-width: 960px) {
+	.wrapper .repo-search-box {
+		position: relative;
+		top: initial;
+		left: initial;
+		padding: 1rem;
+		background-color: #666;
+	}
+	.wrapper .repo-search-box .search-query {
+		width: calc(100% - 1.2rem);
+	}
+	.wrapper .repo-search-box .search-submit {
+		top: initial;
+		right: 1.6rem;
+	}
+	.repo-list-container.col-type-4 .single-repo {
+		width: 30%;
+		margin: 2rem 2%;
+	}
+	.repo-list-container.col-type-4:not(.col-type-2) .single-repo:nth-child(4n) {
+		margin-right: 2%;
+	}
+	.repo-list-container.col-type-4:not(.col-type-2) .single-repo:nth-child(3n) {
+		margin-right: 0;
+	}
+	.repo-options-container .options-wrapper .cols label.checkbox:last-child {
+		display: none;
+	}
+}
+@media all and (max-width: 640px) {
+	.repo-view-container .repo-container {
+		width: 100%;
+		box-sizing: border-box;
+		height: 100vh;
+		top: 0;
+		left: 0;
+		transform: none;
+	}
+}
+@media all and (max-width: 480px) {
+	.repo-options-container .options-wrapper .cols {
+		display: none;
+	}
+	.repo-list-container.col-type-4 .single-repo,
+	.repo-list-container .single-repo {
+		width: 47%;
+	}
+	.repo-list-container.col-type-4:not(.col-type-2) .single-repo:nth-child(4n) {
+		margin-right: 2%;
+	}
+	.repo-list-container.col-type-4:not(.col-type-2) .single-repo:nth-child(3n) {
+		margin-right: 2%;
+	}
+	.repo-list-container.col-type-4:not(.col-type-2) .single-repo:nth-child(2n) {
+		margin-right: 0;
+	}
+	.repo-list-container:not(.col-type-2):not(.col-type-4) .single-repo:nth-child(4n) {
+		margin-right: 2%;
+	}
+	.repo-list-container:not(.col-type-2):not(.col-type-4) .single-repo:nth-child(3n) {
+		margin-right: 2%;
+	}
+	.repo-list-container:not(.col-type-2):not(.col-type-4) .single-repo:nth-child(2n) {
+		margin-right: 0;
+	}
+	.repo-options-container .options-wrapper .cols {
+		display: none;
+	}
+	.repo-options-container .options-wrapper .search {
+		width: 100%;
+		text-align: center;
+	}
+}
+@media all and (max-width: 360px) {
+	#repo-list-container .single-repo {
+		width: 100%;
+	}
+	#repo-list-container .single-repo:nth-child(4n),
+	#repo-list-container .single-repo:nth-child(3n),
+	#repo-list-container .single-repo:nth-child(2n) {
+		margin-right: 0;
+	}
+}

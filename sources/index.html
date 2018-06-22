@@ -11,6 +11,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700" rel="stylesheet">
 		<link rel="Stylesheet" type="text/css" href="assets/css/reset.css" />
 		<link rel="Stylesheet" type="text/css" href="assets/css/styles.css" />
+		<link rel="Stylesheet" type="text/css" href="assets/css/media.css" />
 	</head>
 	<body>
 		
@@ -47,12 +48,12 @@
 				<h3>Información de repositorio</h3>
 				<h2><%= repo.name %><span class="single-repo-lang"><%= repo.language %></span></h2>
 				<div>
-					<div class="repo-list-url"><i class="fa fa-clone"></i> <input type="text" class="hidden-design" readonly value="<%= repo.git_url %>"/></div>
-					<div class="repo-list-url"><a href="<%= repo.html_url %>"><i class="fa fa-link"></i> <%= repo.html_url %></a></div>
-					<div class="repo-list-url"><i class="fa fa-calendar"></i> Creado <%= vrepo.formatDate(repo.created_at) %></div>
-					<div class="repo-list-url"><a href="<%= repo.downloads_url %>"><i class="fa fa-download"></i> <%= repo.downloads_url %></a></div>
-					<div class="repo-list-url"><i class="fa fa-code-branch"></i> Último push <%= vrepo.formatDate(repo.pushed_at) %></div>
-					<div class="repo-list-url"><i class="fa fa-eye"></i> <%= repo.watchers %> observadores</div>
+					<div class="repo-list-url"><span class="icon-wrapper"><i class="fa fa-clone"></i></span><input type="text" class="hidden-design" readonly value="<%= repo.git_url %>"/></div>
+					<div class="repo-list-url"><a href="<%= repo.html_url %>"><span class="icon-wrapper"><i class="fa fa-link"></i></span><%= repo.html_url %></a></div>
+					<div class="repo-list-url"><span class="icon-wrapper"><i class="fa fa-calendar"></i></span>Creado <%= vrepo.formatDate(repo.created_at) %></div>
+					<div class="repo-list-url"><a href="<%= repo.downloads_url %>"><span class="icon-wrapper"><i class="fa fa-download"></i></span><%= repo.downloads_url %></a></div>
+					<div class="repo-list-url"><span class="icon-wrapper"><i class="fa fa-code-branch"></i></span>Último push <%= vrepo.formatDate(repo.pushed_at) %></div>
+					<div class="repo-list-url"><span class="icon-wrapper"><i class="fa fa-eye"></i></span><%= repo.watchers %> observadores</div>
 				</div>
 				<h3>Información de propietario</h3>
 				<div class="owner">
