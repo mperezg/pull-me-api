@@ -19,6 +19,13 @@
 		<textarea data-type="htmltpl" id="repos">
 			<h1>Repositorios en github de @hackeryou</h1>
 			<div id="repo-search-box" class="repo-search-box"/>
+			<div id="menu" class="menu">
+				<ul>
+					<li><a href="#/" id="menu-repos" class="active">Repositorios</a></li>
+					<li><a href="#options" id="menu-options">Opciones</a></li>
+				</ul>
+			</div>
+			<div id="repo-options-container" class="repo-options-container"/>
 			<div id="repo-query-info" class="repo-query-info"></div>
 			<div id="repo-list-container" class="repo-list-container">
 				<div class="spinner"><i class="fas fa-sync fa-spin"></i></div>
@@ -39,8 +46,14 @@
 				<div class="close-button"><i class="fa fa-window-close"></i></div>
 				<h3>Información de repositorio</h3>
 				<h2><%= repo.name %><span class="single-repo-lang"><%= repo.language %></span></h2>
-				<div class="repo-list-url"><i class="fa fa-clone"></i> <input type="text" class="hidden-design" readonly value="<%= repo.git_url %>"/></div>
-				
+				<div>
+					<div class="repo-list-url"><i class="fa fa-clone"></i> <input type="text" class="hidden-design" readonly value="<%= repo.git_url %>"/></div>
+					<div class="repo-list-url"><a href="<%= repo.html_url %>"><i class="fa fa-link"></i> <%= repo.html_url %></a></div>
+					<div class="repo-list-url"><i class="fa fa-calendar"></i> Creado <%= vrepo.formatDate(repo.created_at) %></div>
+					<div class="repo-list-url"><a href="<%= repo.downloads_url %>"><i class="fa fa-download"></i> <%= repo.downloads_url %></a></div>
+					<div class="repo-list-url"><i class="fa fa-code-branch"></i> Último push <%= vrepo.formatDate(repo.pushed_at) %></div>
+					<div class="repo-list-url"><i class="fa fa-eye"></i> <%= repo.watchers %> observadores</div>
+				</div>
 				<h3>Información de propietario</h3>
 				<div class="owner">
 					<p><span class="avatar"><img src="<%= repo.owner.avatar_url %>"/></span> <span class="name"><%= repo.owner.login %></span> #<%= repo.owner.id %></p>
@@ -52,6 +65,33 @@
 		<textarea data-type="htmltpl" id="search">
 			<input type="text" class="search-query" id="search-query" placeholder="Busca un repo por nombre">
 			<button type="button" class="search-submit" id="search-submit"><i class="fas fa-search"></i></button>
+		</textarea>
+		
+		<textarea data-type="htmltpl" id="optionsTmpl">
+			<div class="options-wrapper">
+				<div class="cols">
+					<i class="fa fa-columns"></i>
+					<label class="checkbox">
+						<input type="radio" name="colType" value="2"/>
+						<span>2</span>
+					</label>
+					<label class="checkbox">
+						<input type="radio" name="colType" value="3" checked />
+						<span>3</span>
+					</label>
+					<label class="checkbox">
+						<input type="radio" name="colType" value="4"/>
+						<span>4</span>
+					</label>
+				</div>
+				<div class="search">
+					<i class="fa fa-search"></i>
+					<label class="checkbox">
+						<input type="checkbox" name="allowSearch" value="true" checked/>
+						<span>Permitir búsqueda</span>
+					</label>
+				</div>
+			</div>
 		</textarea>
 		
 		<textarea data-type="htmltpl" id="errorRepo">
@@ -80,6 +120,7 @@
 		<script src="src/views/repoView.js"></script>
 		<script src="src/views/searchView.js"></script>
 		<script src="src/views/reposView.js"></script>
+		<script src="src/views/optionsView.js"></script>
 		<script src="src/views/errorView.js"></script>
 		
 		<!-- router -->

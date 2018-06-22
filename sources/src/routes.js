@@ -1,10 +1,12 @@
-var vs;
+var vs, vopts, vrepo;
 var Router = Backbone.Router.extend({
     routes: {
         '': 'index',
 		'search/:query': 'search',
 		'view/:name': 'view',
-		'error/:code/(:status)': 'error'
+		'options': 'options',
+		'error/:code/(:status)': 'error',
+		'*default': 'errorDefault'
     },
 	initialize: function() {
 		this.index();
@@ -17,22 +19,28 @@ var Router = Backbone.Router.extend({
 		$('#search-query').val(query).change();
 	},
 	view: function(name) {
-		var self = this;
-		var m = (new Models.Repo({id: name})).fetch({
-			success: function() {
-				self.viewHelper(m);
-			}, 
-			error: function(a,b,c) {
-				router.navigate("error/"+b.status+"/"+b.statusText);
-			}
-		});
+		if(!name) {
+			router.navigate("error/404/Not Found");
+		} else {
+			vrepo = new Views.Repo();
+			vrepo.setElement($('#repo-view-container')).render(name);
+		}
 	},
-	viewHelper: function(model) {
-		var vs = new Views.Repo({model: model});
-		vs.setElement($('#repo-view-container')).render();
+	options: function() {
+		if(typeof vopts === 'object') {
+			vopts.show();
+		} else {
+			vopts = new Views.Options();
+			vopts.setElement($('#repo-options-container')).render();
+		}
 	},
 	error: function(code, status) {
 		let m = new Models.Error({code: code, status: status});
+		var vs = new Views.Error({model: m});
+		vs.setElement($('#error-container')).render();
+	},
+	errorDefault: function() {
+		let m = new Models.Error({code: '404', status: 'Not Found'});
 		var vs = new Views.Error({model: m});
 		vs.setElement($('#error-container')).render();
 	}
