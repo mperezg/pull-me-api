@@ -49,16 +49,16 @@
 				<h2><%= repo.name %><span class="single-repo-lang"><%= repo.language %></span></h2>
 				<div>
 					<div class="repo-list-url"><span class="icon-wrapper"><i class="fa fa-clone"></i></span><input type="text" class="hidden-design" readonly value="<%= repo.git_url %>"/></div>
-					<div class="repo-list-url"><a href="<%= repo.html_url %>"><span class="icon-wrapper"><i class="fa fa-link"></i></span><%= repo.html_url %></a></div>
+					<div class="repo-list-url"><a href="<%= repo.html_url %>" target="_blank"><span class="icon-wrapper"><i class="fa fa-link"></i></span><%= repo.html_url %></a></div>
 					<div class="repo-list-url"><span class="icon-wrapper"><i class="fa fa-calendar"></i></span>Creado <%= vrepo.formatDate(repo.created_at) %></div>
-					<div class="repo-list-url"><a href="<%= repo.downloads_url %>"><span class="icon-wrapper"><i class="fa fa-download"></i></span><%= repo.downloads_url %></a></div>
+					<div class="repo-list-url"><a href="<%= repo.downloads_url %>" target="_blank"><span class="icon-wrapper"><i class="fa fa-download"></i></span><%= repo.downloads_url %></a></div>
 					<div class="repo-list-url"><span class="icon-wrapper"><i class="fa fa-code-branch"></i></span>Último push <%= vrepo.formatDate(repo.pushed_at) %></div>
 					<div class="repo-list-url"><span class="icon-wrapper"><i class="fa fa-eye"></i></span><%= repo.watchers %> observadores</div>
 				</div>
 				<h3>Información de propietario</h3>
 				<div class="owner">
 					<p><span class="avatar"><img src="<%= repo.owner.avatar_url %>"/></span> <span class="name"><%= repo.owner.login %></span> #<%= repo.owner.id %></p>
-					<p><a href="<%= repo.owner.html_url %>"><i class="fa fa-link"></i> <%= repo.owner.html_url %></a></p>
+					<p><a href="<%= repo.owner.html_url %>" target="_blank"><i class="fa fa-link"></i> <%= repo.owner.html_url %></a></p>
 				</div>
 			</div>
 		</textarea>
